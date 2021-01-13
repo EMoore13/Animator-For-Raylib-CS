@@ -5,7 +5,7 @@ using Raylib_cs;
 using static Raylib_cs.Raylib;
 using static Raylib_cs.Color;
 using System.Numerics;
-using TestGame.src;
+using [ANIMATOR NAMESPACE];
 
 namespace [INSERT NAMESPACE]
 {
