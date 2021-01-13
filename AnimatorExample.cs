@@ -20,11 +20,13 @@ namespace [INSERT NAMESPACE]
                 const int screenH = 768;
                 InitWindow(screenW, screenH, "Animator Example");
 
-                // Load Textures
-                Texture2D ojaTexture = LoadTexture("spritesheets/[INSERT SPRITESHEET HERE].png");
+                Texture2D characterTexture = LoadTexture(filePath + "spritesheets/CharSheetEdit.png");
+                Rectangle characterFrameRec = new Rectangle(0, 0, 84, 64);
 
-                // Load Player Class
-                Player p = new Player(ojaTexture, new Vector2(0f, 0f), new Rectangle(0, 0, 80, 54));
+                Vector2 characterPos = new Vector2(0, 0);
+
+                Animator characterAnimator = new Animator("Test", 24, 1, 12);
+                characterAnimator.AssignSprite(characterTexture);
 
                 SetTargetFPS(60);
 
@@ -32,12 +34,12 @@ namespace [INSERT NAMESPACE]
                 while (!WindowShouldClose())
                 {
                     // Update
-                    p.Update();
+                    characterAnimator.Play();
 
                     BeginDrawing();
                     ClearBackground(BLACK);
 
-                    p.Draw();
+                    DrawTextureRec(characterAnimator.GetSprite(), characterAnimator.GetFrameRec(), characterPos, WHITE);
 
                     EndDrawing();
                 }
